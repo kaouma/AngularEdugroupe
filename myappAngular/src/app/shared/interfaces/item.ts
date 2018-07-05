@@ -5,5 +5,6 @@ export interface Item {
   name: string;
   reference: string;
   state: State;
+  dateLivraison: Date;
 
 }

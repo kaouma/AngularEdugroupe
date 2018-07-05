@@ -9,28 +9,38 @@ import { HomeModule } from './home/home.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemsModule } from './items/items.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Router } from '@angular/router';
 
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
+// the second parameter 'fr' is optional
+registerLocaleData(localeFr, 'fr');
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
-PageNotFoundModule,
+
     HomeModule,
     NgbModule.forRoot(),
-    ItemsModule
-
+    ItemsModule,
+  AppRoutingModule,
+  RouterModule,
+  PageNotFoundModule
   ],
-  providers: [],
+
+  providers: [ { provide: LOCALE_ID, useValue: 'fr' } ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+} }

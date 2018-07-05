@@ -14,5 +14,7 @@ public state = State;
 
   ngOnInit() {
   }
-
+public changeState(etat: State): void {
+this.item.state = etat;
+}
 }
