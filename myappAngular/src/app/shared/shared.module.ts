@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Item2Component } from './components/item2/item2.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule
   ],
-  declarations: [NavComponent, ItemComponentComponent, StateDirective, FormComponent],
-  exports: [NavComponent, ItemComponentComponent, StateDirective, FormComponent]
+  declarations: [NavComponent, ItemComponentComponent, StateDirective, FormComponent, Item2Component],
+  exports: [NavComponent, ItemComponentComponent, StateDirective, FormComponent, Item2Component]
 })
 export class SharedModule { }

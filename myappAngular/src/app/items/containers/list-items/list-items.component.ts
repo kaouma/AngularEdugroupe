@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from '../../../shared/interfaces/item';
 import { CollectionService } from '../../../core/services/collection.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-items',
@@ -8,15 +9,16 @@ import { CollectionService } from '../../../core/services/collection.service';
   styleUrls: ['./list-items.component.css']
 })
 export class ListItemsComponent implements OnInit {
-  public collection: Item[];
-  constructor(private collectionService: CollectionService) {
+  public collection: Observable<Item[]>;
+  // public collection: Item[];
 
 
-  }
+  constructor(private collectionService: CollectionService) {}
 
   ngOnInit() {
     this.collection = this.collectionService.collection;
-  console.log(this.collection);
-  }
+    // this.sub = this.collectionService.collection.subscribe(data => {
+    //   this.collection = data;
+    }
 
 }
